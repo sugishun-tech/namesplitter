@@ -135,8 +135,8 @@ class NameSplitter:
 
     def __init__(
         self,
-        first_name_path: str | Path = "first_name.txt",
-        last_name_path: str | Path = "last_name.txt",
+        first_name_path: str | Path = DEFAULT_FIRST_NAME_PATH,
+        last_name_path: str | Path = DEFAULT_LAST_NAME_PATH,
         *,
         encoding: str = "utf-8",
     ) -> None:

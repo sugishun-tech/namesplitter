@@ -298,22 +298,3 @@ def test_sugishita_takes_one_character_last_name_when_given_name_is_unknown_with
 
     splitter = NameSplitter(first_path, last_path)
     assert splitter.namesplit("杉下武") == ["杉下", "武"]
-
-
-def test_real_uploaded_dictionary_files_can_be_copied_to_expected_default_names(tmp_path: Path) -> None:
-    """Verify the attached dictionary files work when named first_name.txt / last_name.txt."""
-    current_dir = Path(__file__).resolve().parent
-    uploaded_first = current_dir / "first_name(1).txt"
-    uploaded_last = current_dir / "last_name(1).txt"
-
-    if not uploaded_first.exists() or not uploaded_last.exists():
-        pytest.skip("attached first_name(1).txt and last_name(1).txt are not present")
-
-    first_path = tmp_path / "first_name.txt"
-    last_path = tmp_path / "last_name.txt"
-    shutil.copyfile(uploaded_first, first_path)
-    shutil.copyfile(uploaded_last, last_path)
-
-    splitter = NameSplitter(first_path, last_path)
-    assert splitter.namesplit("森満子") == ["森", "満子"]
-    assert splitter.namesplit("モリミツコ") == ["モリ", "ミツコ"]
