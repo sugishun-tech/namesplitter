@@ -165,14 +165,6 @@ first_name.txt
 last_name.txt
 ```
 
-添付ファイル名が `first_name(1).txt` / `last_name(1).txt` のようになっている場合は、テスト実行前にリネームまたはコピーしてください。
-
-```bash
-cp 'first_name(1).txt' first_name.txt
-cp 'last_name(1).txt' last_name.txt
-python -m pytest -q
-```
-
 ## 注意点
 
 このツールはルールベースです。人名の分割には本質的に曖昧性があります。
